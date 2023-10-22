@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Revobank</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<h1><strong>Python-Revobank</strong></h1><br></br>
+				<a href="https://adityaanggapradana.github.io/AdityaPradana.github.io/" class="button small"><strong>Home</strong></a>
+			</div>
+		</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>Project Summary</h2>
+						</header>
+						<p>This project revolves around analyzing the performance of RevoBank's promotional program in collaboration with RevoShop, an e-commerce marketplace. The aim is to comprehend customer spending patterns, categorize customers based on their responsiveness to promotions, and customize the rewards program for various customer segments</p>
+						
+
+				<!-- Two -->
+					<section id="two">
+						<h2>Project Background</h2>
+						<div class="row gtr-50 gtr-uniform">
+						</div><br>
+						<p>RevoBank, a European bank, collaborates with RevoShop, an e-commerce marketplace, for a promotion targeting credit card users. RevoBank offers vouchers to customers, which can be redeemed for credit card reward points. After running this for six months, they want to understand customer spending patterns, identify different user segments, and customize the rewards program more effectively. This is to make the promotion work better for both customers and RevoBank.</p> 
+					</section>
+
+					<h2>Goals</h2>
+						<div class="row gtr-50 gtr-uniform">
+						</div><br>
+						<p>The business requirement/goal of the analysis is to assess the performance of RevoBank's promotion program with RevoShop and identify opportunities to customize the rewards program for different segments of RevoBank credit card users who are also RevoShop customers.</p> 
+						<h3>Objectives</h3>
+						
+						<li>Performance Overview: Provide insights into how the promotion program has performed from RevoBank's perspective over the past 6 months. This includes understanding the impact of the promotion on credit card usage, transaction volume, revenue generated, and associated costs.</li>
+						<li>Customer Segmentation: Identify different segments of RevoBank credit card users who are also RevoShop customers. The goal is to group customers based on their spending patterns, behavior, and responsiveness to the promotion.</li>
+					</ol>
+					
+						<p><h2>Project Files</h2></p>
+								For a more comprehensive analysis and visualization, please open the project files.
+								<ul>
+								<li><a href="https://colab.research.google.com/drive/1giL7yI8VPa0dmmsvKgrQODLMT94V_ksw?usp=sharing">Project Notebook</a></li>
+							</ul>
+					</section>
+					</section>
+
+					
+
+				<!-- Six -->
+				<section id="six">
+					<h2>Data Analysis</h2>
+					<h3><b>Note : Only important steps shown to simplify the analysis explanation</h3></b>
+					
+					<h3>Data Preparation & Cleaning</h3>
+					<p><b>Data Prep</b></p>
+					<script src="https://pastebin.com/embed_js/akiBUTRx"></script>
+					<br><p>"Python environment preparation by loading the necessary library".</p>
+
+					<p><b>Import Dataset</b></p>
+					<script src="https://pastebin.com/embed_js/8KMF4sRs"></script>
+					<br><p>"Imported dataset from google sheets using csv interpreter"</p>
+
+					<p><b>Handling Data</b></p>
+					<script src="https://pastebin.com/embed_js/h0qwwg90"></script>
+					<br><p>Due to the fact that in the data dictionary, only the '5262-MARKETPLACES' value is used in the MCC column, the first step is to remove the data in the MCC column, namely 'TOKTOKLIVE'</p>
+					
+					<script src="https://pastebin.com/embed_js/UMsX5AKM"></script>
+					<br><li>Afterward, we identify the presence of missing data indicated by the value -1 in the column "AVG_PROMO_TXN_AMT_L6M." We decide to impute the data where -1 appears and change it to the value 0.</li>
+					<li>After several processes, we no longer find any duplicate data or null values</li>
+
+					<p><script src="https://pastebin.com/embed_js/cbiX9AEP"></script></p>
+					<p>Then, we change the data type of the "ACCOUNT_ID" column to a string to facilitate data processing. Afterward, we convert the data type of the "MOB" column to INT to ensure there are no decimal places in the numbers. Finally, we convert the "BIRTH_DATE" column to DATETIME format to ensure it adheres to the correct date format</p>
+
+					<h2>Exploratory Data Analysis (EDA)</h2>
+					<h3>Trends</h3>
+					<p><b>Trx Behavior and Promo Sensitivity based on Active Customer</b></p>
+					<p><script src="https://pastebin.com/embed_js/s8C885M2"></script></p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-9"><span class="image fit"><img src="images/Promo Sensitive Active Cust.png"></span></div>
+					</div><br>
+					<p>Many active customers are sensitive to promotions, presenting a prime opportunity for RevoShop to boost sales by tailoring promotions to their preferences and behavior</p>
+					
+					<p><script src="https://pastebin.com/embed_js/g9ix5SVg"></script></p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-9"><span class="image fit"><img src="images/Avg Trx Amt Cust Group.png"></span></div>
+					</div><br>
+					<p>Highly active customers spend the most and offer a significant revenue opportunity, while those with "Average Activity" represent a sizable customer base for steady growth, and "Low Activity" customers, though spending less, can still be valuable with targeted efforts. RevoShop can boost sales by targeting highly active customers for upselling, and by encouraging "Low Activity" customers with personalized offers, aligning marketing strategies with customer behavior and preferences</p>
+					
+					<p><b>Trx Behavior and Promo Sensitivity based on Customer Value</b></p>
+					<p><script src="https://pastebin.com/embed_js/JjgP0bSS"></script></p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-9"><span class="image fit"><img src="images/Promo Sensitive Cust Value Group.png"></span></div>
+					</div><br>
+					<p>Customer response to promotions varies by customer value group, with valuable customers in CUST_VALUE_GROUP A benefiting from targeted promotions, while other groups may need alternative loyalty-boosting strategies. Understanding these differences allows RevoShop to tailor marketing efforts effectively and enhance overall business performance.</p>
+					
+					
+					<h3>Cluster Analysis & Interpretation</h3>
+					<p><b>Boxplot Distribution</b></p>
+					<p><script src="https://pastebin.com/embed_js/wxtqxLiV"></script></p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-9"><span class="image fit"><img src="images/thumbs/Boxplot.png"></span></div>
+					</div><br>
+					<p>When there are many outliers in the data, it can indicate skewed data and substantial variability</p>
+
+					<p><b>Min-Max Scaler</b></p>
+					<p><script src="https://pastebin.com/embed_js/D6C6SV2c"></script></p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-9"><span class="image fit"><img src="images/thumbs/Min-Max Scaler.png"></span></div>
+					</div><br>
+					<p>By using the Min-Max Scaler, we can achieve a more consistent and standardized range for all features in the dataset, reducing the potential impact of outliers during data analysis or machine learning model training. This preprocessing step can improve the performance and stability of various data analysis and machine learning tasks</p>
+
+					<p><b>Elbow Method</b></p>
+					<p><script src="https://pastebin.com/embed_js/aaSjaRG4"></script></p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-9"><span class="image fit"><img src="images/Elbow Method.png"></span></div>
+					</div><br>
+					<p>elbow point occurs at K=3, it implies that three clusters might be more appropriate to capture distinct patterns and separate data points effectively</p>
+
+					<p><b>Silhoutte Analysis</b></p>
+					<p><script src="https://pastebin.com/embed_js/U3hQ9hv2"></script></p>
+					<div class="row gtr-50 gtr-uniform">
+						<div class="col-9"><span class="image fit"><img src="images/Silhoutte Analysis.png"></span></div>
+					</div><br>
+					<p>we choose n_clusters = 3 based on other considerations, such as the interpretability of the clusters, domain knowledge, or specific business needs. It's essential to balance the silhouette score with other factors to make an informed decision</p>
+
+					
+				<p></p></br>
+					  <h3><b>Summary Clustering Analysis</h3></b>
+					  <div class="row gtr-50 gtr-uniform">
+						  <div class="col-9"><span class="image fit"><img src="images/Clustering Summary (2).png"></span></div>
+					  </div><br>
+					  <b>Interpretation:</b>
+					  <ol>
+						  <li>Cluster 0 : Customers in this group are high spenders but do not make a lot of transactions. They are highly responsive to promotions, meaning offering them targeted promotions could encourage more spending.
+						</li>
+						  <li>Cluster 1 : Customers in this group also spend a lot but make slightly more transactions compared to Cluster 0. They are not as sensitive to promotions as Cluster 0, so offering promotions may not have a significant impact on their spending.</li>
+						  <li>Cluster 2 : Customers in this group make many transactions but have a lower average spending amount. They are sensitive to promotions, indicating that offering them targeted promotions could lead to increased spending.</li>
+						</ol><br>
+</section>
+					
+				<!-- Seven -->
+				<section id="seven">
+					<h2>Recommendation</h2>
+					<ol>
+						<li>Cluster 0: Customize promotions for this segment to encourage more spending, as they are highly responsive to promotions. This can lead to increased revenue with a relatively low promotional cost.</li>
+						<li>Cluster 1: Instead of relying solely on promotions, explore other marketing strategies or introduce rewards for this segment. Promotions may not significantly impact their spending behavior, so diversifying your approach is advisable.</li>
+						<li>Cluster 2: Offer targeted promotions to customers in this segment to stimulate their frequent transactions and boost overall spending. They are sensitive to promotions and can be encouraged to spend more through this approach.</li>
+					  </ol>
+					  <p>In summary, focus on Cluster 0 and Cluster 2 for promotions, as they are more likely to respond positively and generate higher revenue with relatively low promotional costs. For Cluster 1, consider alternative strategies as promotions may not have a substantial impact on their spending behavior</p>
+				</section>
+				</section>
+			</br>
+
+				<!-- Eight -->
+				</section>
+				
+				<a href="https://adityaanggapradana.github.io/AdityaPradana.github.io/" class="button small">Home</a>
+				<a href="https://adytiapp.github.io/adytia_uwak_portfolio/projects.html" class="button small">Projects</a>
+			
+			</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/aditya-a-pradana/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+					<li><a href="https://github.com/AdityaAnggaPradana" class="icon brands fa-github"><span class="label">Github</span></a></li>
+					<li><a href="https://wa.me/6287888633607" class="icon solid fa-phone"><span class="label">Phone</span></a></li>
+					<li><a href="mailto:adityasasmita3110@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Aditya Pradana</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+</body>
+</html>
